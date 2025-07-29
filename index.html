@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Pass Booking</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Book a Ticket</h2>
+    {% if current_user.is_authenticated %}
+    <form method="POST" action="/book">
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Route:</label>
+        <input type="text" name="route" required><br>
+        <button type="submit">Book Ticket</button>
+    </form>
+    <p><a href="/logout">Logout</a></p>
+    {% if current_user.username == 'admin' %}
+    <p><a href="/admin">Admin Dashboard</a></p>
+    {% endif %}
+    {% else %}
+    <p><a href="/login">Login</a> or <a href="/register">Register</a> to book tickets.</p>
+    {% endif %}
+</body>
+</html>
