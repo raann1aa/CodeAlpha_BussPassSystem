@@ -1,0 +1,5 @@
+Flask
+openai
+flask_sqlalchemy
+gunicorn
+flask-login
